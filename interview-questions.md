@@ -23,13 +23,13 @@ Researched answer: Yarn is open sourced.  It has all the dependencies needed to 
 
 Your answer: An anonymous function in JavaScript is a function that does not have a name. I believe it lives inside of a component or another function. A function that runs dependent on another function. I know it doesn't have or need a name. 
 
-Researched answer:Another definition of an annonymous function is a function that is stored in a variable and does not have or need a name. They are started by calling on the variables name. THey end with a semicolon and it can have many argunments but only one return.
+Researched answer:Another definition of an anonymous function is a function that is stored in a variable and does not have or need a name. They are started by calling on the variables name. THey end with a semicolon and it can have many arguments but only one return.
 
 4. What is the difference between a class and an object?
 
 Your answer: A class is a blue print for objects. Objects are the key value pairs that hold data, like arrays. Objects are the intersection of data and actions. A good real life example to illustrate this is classes are like recipes and objects are what we can create with recipes. 
 
-Researched answer: A class is just a blueprint for an object. For example if you have a class of Dogs we know that all dogs have a certain breed, color, size, age. Now if we look at a Boston Terrier dog for example the breed is Boston Terrier the size is small the age is xx so that dog itself is an object in the class of dogs which has its own attributes that are different from other dogs. .
+Researched answer: A class is just a blueprint for an object. For example if you have a class of Dogs we know that all dogs have a certain breed, color, size, age. Now if we look at a Boston Terrier dog for example the breed is Boston Terrier the size is small the age is xx so that dog itself is an object in the class of dogs which has its own attributes that are different from other dogs. 
 
 5. What is the difference between state and props in React?
 
