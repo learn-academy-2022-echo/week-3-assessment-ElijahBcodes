@@ -56,14 +56,14 @@ describe("fibonacci", () => {
 
 // --------------------2) Create a function that takes in an array and returns a new array of only odd numbers sorted from least to greatest.
 //Pseudo code: make a test with expect statement for the following variables 
-
+  const fullArr1 = [4, 9, 0, "7", 8, true, "hey", 7, 199, -9, false, "hola"]
+  const fullArr2 = ["hello", 7, 23, -823, false, 78, null, "67", 6, "number"]
 // a) Create a test with expect statements for each of the variables provided.
 describe("oddlyEnough", () => {
   it("returns an array with only odd numbers", () => {
-    expect(oddlyEnough()).toEqual([-9, 7, 9, 199]);
-    expect(oddlyEnough()).toEqual([-823, 7, 23]);
-  const fullArr1 = [4, 9, 0, "7", 8, true, "hey", 7, 199, -9, false, "hola"]
-  const fullArr2 = ["hello", 7, 23, -823, false, 78, null, "67", 6, "number"]
+    expect(oddlyEnough(fullArr1)).toEqual([-9, 7, 9, 199]);
+    expect(oddlyEnough(fullArr2)).toEqual([-823, 7, 23]);
+
   });
 });
 // FAIL  ./code-challenges.test.js // had a good fail at the expect since there is no function
@@ -73,109 +73,108 @@ describe("oddlyEnough", () => {
 //Pseudo code: taking an array as input 
 //Takes an array of numbers and strings and only return numbers that are odd, ignore everything else
 //output will be an array with only the odd numbers 
-const fullArr1 = [4, 9, 0, "7", 8, true, "hey", 7, 199, -9, false, "hola"]
-const fullArr2 = ["hello", 7, 23, -823, false, 78, null, "67", 6, "number"]
-const oddlyEnough =(array) => {
-  let numStuff = array.filter((value) => {
-   return typeof value === "number"
-  })
- let justNums = numStuff.map(value => {
-      if (value % 2 !== 0) {
-        return value
-      } 
-    })
-    return justNums
-  }
+// const fullArr1 = [4, 9, 0, "7", 8, true, "hey", 7, 199, -9, false, "hola"]
+// const fullArr2 = ["hello", 7, 23, -823, false, 78, null, "67", 6, "number"]
 
+
+const oddlyEnough =(array) =>{
+  let oddNums  = array.filter(value => value % 2 !== 0 && (typeof value == 'number'))
+  return oddNums.sort((a,b)=>a-b);
+}
+// PASS  ./code-challenges.test.js// This was a huge milestone for me. Breaking down the problem into small steps really helped. In the end my code worked but my test was failing because the variables were being declared after and inside the test. //The rest of the code is just my failed attempts and code that was almost there. Thank you Char for the short but concise help to steer me to my solution!
   // let numberStuff = fullArr1.filter((notebook)=>{ ///this filters out the numbers 
   //     return typeof notebook === "number"
-  //   })
-
-    
-  const oddlyEnough =(array) =>{
-  let oddNums  = array.filter(value => value % 2 !== 0) //this filters for odd nums 
-  let numberStuff = oddNums.map(value => {
-    if(typeof value == "number") {
-      return value
-    } 
-  })
-  return numberStuff  
-}
-//the return was  [9, undefined, undefined, undefined, 7, 199, -9, undefined] meaning that maybe I should just try to map the whole thing. It takes the type pf statment as true or false
-
-
-  let nuwNum = numStuff.map(value =>{
-    if(value % 2 !== 0){
-      return value
-    }
-  })
-  return newNum
-
-
-
+  //   }) 
+//   const oddlyEnough =(array) =>{
+//   let oddNums  = array.filter(value => value % 2 !== 0){ //this filters for odd nums 
+//   return oddNums 
+//  }      
+// }
+//the return was  [9, undefined, undefined, undefined, 7, 199, -9, undefined] meaning that maybe I should just try to map the whole thing. It takes the type pf statement as true or false
+  // let nuwNum = numStuff.map(value =>{
+  //   if(value % 2 !== 0 && (typeof value)=='number' ){
+  //     return value
+  //   }
+  // })
+  // return newNum
 // --------------------3) Create a function that takes in an array and returns an array of the accumulating sum. An empty array should return an empty array.
 
 // a) Create a test with expect statements for each of the variables provided.
 //Pseudo code: make a test with expect statement 
 // if this is input  const numbersToAdd1 = [2, 4, 45, 9],
 // This is the Expected output: [2, 6, 51, 60]
-describe("numberSum", () => {
-  it("returns an array with the accumulating sum", () => {
-    expect(numberSum([2, 4, 45, 9])).toEqual([2, 6, 51, 60]);
-    expect(numberSum([0, 7, -8, 12])).toEqual([0, 7, -1, 11]);
+const numbersToAdd1 = [2, 4, 45, 9]
+const numbersToAdd2 = [0, 7, -8, 12]
+const numbersToAdd3 = []
+describe("numSum", () => {
+  it("takes in an array and returns an array of the same length with the accumulating sum", () => {
+    expect(numSum(numbersToAdd1)).toEqual([2, 6, 51, 60]);
+    expect(numSum(numbersToAdd2)).toEqual([0, 7, -1, 11]);
+    expect(numSum(numbersToAdd3)).toEqual([]);
   });
 });
-const numbersToAdd1 = [2, 4, 45, 9]
+//the test passed  PASS  ./code-challenges.test.js
 // Expected output: [2, 6, 51, 60]
-const numbersToAdd2 = [0, 7, -8, 12]
+
 // Expected output: [0, 7, -1, 11]
-const numbersToAdd3 = []
-Expected output: [] 
+
+// Expected output: [] 
 // b) Create the function that makes the test pass.
-//Pseudo code: Input will be an array of numbers. 
+//Pseudo code: 
+//Input will be an array of numbers. 
 //take first number in the array and add it to the previous number in array 
+//function will
 //store the sum, repeat 
-const num = num => {
-  const added = [
-  for(let i = 0; i < num.length; i ++)
-  added.push(num[i] + (num[i-1]))
-};
-return added;
+//output will be an array and empty array if no values in array 
+
+const numSum =(array) => {
+  for(let i = 1; i < array.length; i ++){
+    array[i] = array[i] + array[i -1]
+}
+return array
+}
+  
 
 
 
-function numberSum(num){        //this didnt work, return was an empty array 
-  const sum=[]
-    for(i = 0; i > num.length; i ++){
-    sum = num[i-1]+ num[i]
-    }
-    return sum
-} 
+//notes below from failed attempts. 
+// function numberSum(num){        //this didnt work, return was an empty array 
+//   const sum=[]
+//     for(i = 0; i > num.length; i ++){
+//     sum = num[i-1]+ num[i]
+//     }
+//     return sum
+// } 
 // const numberSum = function numberSum(array){   //This function gives the sum of the array not what we are looking for? getting closer...
-  let sum = 0;
-  for(let number of array ){
-    sum += number; 
-    return sum
-  }
+  // let sum = 0;
+  // for(let number of array ){
+  //   sum += number; 
+  //   return sum
+  // }
 // numberSum([2, 4, 45, 9]) //output was 60
 
-const num = [2, 4, 45, 9]
-const numB = num => {
-  const added = [];
-  for(let i = 0; i < num.length; i +=1){
-  added.push(num[i] + (num[i-1] || 0));
-};
-return added;
-}
+// const num = [2, 4, 45, 9]
+// const numB = num => {
+//   const added = [];
+//   for(let i = 0; i < num.length; i +=1){
+//   added.push(num[i] + (num[i-1] || 0));
+// };
+// return added;
+// }
 
 
 
 
-const numberSum = (array) => {
-  let numbers = array.filter(value => value < 100)
-  let oddNums = number.map(value => {
-    if (value % 2 !== 0 )
-      return value
-  })
-return oddNums
-}
+// const numberSum = (array) => {
+//   let numbers = array.filter(value => value < 100)
+//   let oddNums = number.map(value => {
+//     if (value % 2 !== 0 )
+//       return value
+//   })
+// return oddNums
+// }
+
+
+// const numberSum = (array) => {
+//   return array.map((sum => value => sum += value)(0))
+// }
